@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indore Municipal Notifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        .notification {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: #fafafa;
+            overflow: hidden;
+        }
+        .notification a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+        .notification a:hover {
+            background-color: #f1f1f1;
+        }
+        .details {
+            display: none;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+    <script>
+        function toggleDetails(id) {
+            var details = document.getElementById(id);
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Indore Municipal Notifications</h1>
+
+        <div class="notification">
+            <a href="javascript:void(0)" onclick="toggleDetails('details1')">Notification 1: Road Construction</a>
+            <div id="details1" class="details">
+                <p>Details: The Indore Municipal Corporation is commencing road construction work on MG Road starting August 1st. The work is expected to last for 3 months and will involve road resurfacing and drainage improvements. Motorists are advised to use alternative routes.</p>
+            </div>
+        </div>
+
+        <div class="notification">
+            <a href="javascript:void(0)" onclick="toggleDetails('details2')">Notification 2: Water Supply Maintenance</a>
+            <div id="details2" class="details">
+                <p>Details: Scheduled maintenance for water supply systems will occur on July 30th from 10 AM to 4 PM. Areas affected include Shankar Nagar and nearby localities. Water supply will be temporarily disrupted during this period.</p>
+            </div>
+        </div>
+
+        <div class="notification">
+            <a href="javascript:void(0)" onclick="toggleDetails('details3')">Notification 3: Garbage Collection Schedule</a>
+            <div id="details3" class="details">
+                <p>Details: New garbage collection schedules are being implemented. Residents of Palasia will now have garbage collected twice a week on Mondays and Thursdays. Please ensure that garbage is placed out by 7 AM on collection days.</p>
+            </div>
+        </div>
+
+        <div class="notification">
+            <a href="javascript:void(0)" onclick="toggleDetails('details4')">Notification 4: Health Camp</a>
+            <div id="details4" class="details">
+                <p>Details: A free health camp will be organized at Indore Central Park on August 5th from 9 AM to 2 PM. Services include general check-ups, blood tests, and vaccinations. All residents are encouraged to participate.</p>
+            </div>
+        </div>
+
+        <div class="notification">
+            <a href="javascript:void(0)" onclick="toggleDetails('details5')">Notification 5: Public Transport Changes</a>
+            <div id="details5" class="details">
+                <p>Details: Changes in public transport routes will take effect on August 10th. Route 22 will have an extended route through new residential areas, while Route 15 will see reduced frequency. Please check the updated schedule on the municipal website.</p>
+            </div>
+        </div>
+
+        <div class="notification">
+            <a href="javascript:void(0)" onclick="toggleDetails('details6')">Notification 6: New Park Opening</a>
+            <div id="details6" class="details">
+                <p>Details: A new park will be opened to the public on August 15th. Located in the western part of the city, the park features walking trails, playgrounds, and picnic areas. The opening ceremony will begin at 10 AM with various activities and refreshments.</p>
+            </div>
+        </div>
+
+        <div class="notification">
+            <a href="javascript:void(0)" onclick="toggleDetails('details7')">Notification 7: Street Light Repairs</a>
+            <div id="details7" class="details">
+                <p>Details: Repairs to street lights on New Palasia Road will start on August 2nd. Work will be carried out in phases to minimize disruption. Temporary lighting will be provided to ensure safety.</p>
+            </div>
+        </div>
+
+        <div class="notification">
+            <a href="javascript:void(0)" onclick="toggleDetails('details8')">Notification 8: Educational Workshop</a>
+            <div id="details8" class="details">
+                <p>Details: An educational workshop on waste management will be held on August 8th at the Community Hall. The workshop is aimed at students and aims to increase awareness about effective waste disposal and recycling.</p>
+            </div>
+        </div>
+
+        <div class="notification">
+            <a href="javascript:void(0)" onclick="toggleDetails('details9')">Notification 9: Traffic Management Changes</a>
+            <div id="details9" class="details">
+                <p>Details: New traffic management measures will be introduced on August 12th. Key intersections will see new traffic signals, and there will be increased enforcement of traffic rules to improve road safety.</p>
+            </div>
+        </div>
+
+        <div class="notification">
+            <a href="javascript:void(0)" onclick="toggleDetails('details10')">Notification 10: Environmental Awareness Campaign</a>
+            <div id="details10" class="details">
+                <p>Details: An environmental awareness campaign will launch on August 20th, focusing on conservation efforts and reducing pollution. Activities include tree planting drives, clean-up operations, and educational seminars.</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

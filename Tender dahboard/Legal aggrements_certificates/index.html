@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birth Certificate Form</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>Legal Agreements</h1>
+        <form id="birth-certificate-form">
+            <fieldset>
+                <legend>Leagal Information</legend>
+                <label for="child-name">Full Name:</label>
+                <input type="text" id="child-name" name="child-name" required>
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+                <label for="add">Full address:</label>
+                
+                <input type="text" id="add" name="Full address" required>
+
+                <label for="place-of-birth">Place of Birth:</label>
+                <input type="text" id="place-of-birth" name="place-of-birth" required>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Parent's Information</legend>
+                <label for="father-name">Father's Full Name:</label>
+                <input type="text" id="father-name" name="father-name" required>
+                <label for="mother-name">Mother's Full Name:</label>
+                <input type="text" id="mother-name" name="mother-name" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Registration Details</legend>
+                <label for="registration-number">Registration Number:</label>
+                <input type="text" id="registration-number" name="registration-number" required>
+                <label for="registration-date">Date of Registration:</label>
+                <input type="date" id="registration-date" name="registration-date" required>
+            </fieldset>
+
+            <button type="button" onclick="generateCertificate()">Generate Certificate</button>
+        </form>
+        <div id="certificate-output" style="display: none;">
+            <h2>Generated Birth Certificate</h2>
+            <pre id="certificate-content"></pre>
+        </div>
+    </div>
+    <script src="script.js"></script> <!-- Link to JavaScript -->
+</body>
+</html>

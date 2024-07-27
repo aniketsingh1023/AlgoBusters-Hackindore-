@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Panel</h1>
+        <form id="uploadForm">
+            <div class="form-group">
+                <label for="fileUpload">Upload File:</label>
+                <input type="file" id="fileUpload" name="fileUpload" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="number">Number:</label>
+                <input type="text" id="number" name="number" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="fatherName">Father's Name:</label>
+                <input type="text" id="fatherName" name="fatherName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="motherName">Mother's Name:</label>
+                <input type="text" id="motherName" name="motherName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="fileName">Name of File Requested:</label>
+                <input type="text" id="fileName" name="fileName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="comment">Comment/Request:</label>
+                <textarea id="comment" name="comment" rows="5"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

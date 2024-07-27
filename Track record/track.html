@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Tracking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .status {
+            display: none;
+            margin-top: 20px;
+        }
+        .status h2 {
+            margin: 0 0 10px;
+            color: #007BFF;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            height: 20px;
+            margin: 10px 0;
+        }
+        .progress-bar span {
+            display: block;
+            height: 100%;
+            background-color: #007BFF;
+            width: 0;
+            transition: width 0.5s;
+        }
+        .status-info {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .status-info p {
+            margin: 5px 0;
+        }
+        .status-info .dates {
+            margin-top: 10px;
+        }
+        .status-info .dates span {
+            display: block;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function trackDocument() {
+            const trackingNumber = document.getElementById('tracking-number').value;
+            const statusSection = document.querySelector('.status');
+            const progressBar = document.querySelector('.progress-bar span');
+            const statusInfo = document.querySelector('.status-info');
+            
+            if (trackingNumber) {
+                statusSection.style.display = 'block';
+                
+                // Simulating document tracking status
+                const statusStages = [
+                    { phase: 'Document Received', width: '20%', date: new Date() },
+                    { phase: 'In Progress', width: '50%', date: new Date(Date.now() + 86400000) }, // +1 day
+                    { phase: 'Verifying', width: '80%', date: new Date(Date.now() + 172800000) }, // +2 days
+                    { phase: 'Verified', width: '100%', date: new Date(Date.now() + 259200000) } // +3 days
+                ];
+
+                let currentStage = 0;
+                let interval = setInterval(() => {
+                    if (currentStage < statusStages.length) {
+                        progressBar.style.width = statusStages[currentStage].width;
+                        const stageDate = statusStages[currentStage].date.toLocaleDateString();
+                        statusInfo.innerHTML = `
+                            <h2>${statusStages[currentStage].phase}</h2>
+                            <p>Your document is currently ${statusStages[currentStage].phase.toLowerCase()}. Please check back later for updates.</p>
+                            <div class="dates">
+                                <span>Date Received: ${statusStages[0].date.toLocaleDateString()}</span>
+                                <span>Date In Progress: ${statusStages[1].date.toLocaleDateString()}</span>
+                                <span>Date Verifying: ${statusStages[2].date.toLocaleDateString()}</span>
+                                <span>Date Verified: ${statusStages[3].date.toLocaleDateString()}</span>
+                            </div>
+                        `;
+                        currentStage++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 2000); // Change status every 2 seconds
+            } else {
+                alert('Please enter a tracking number.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Document Tracking</h1>
+        <div class="form-group">
+            <label for="tracking-number">Enter Your Tracking Number:</label>
+            <input type="text" id="tracking-number" placeholder="e.g., DOC123456789">
+        </div>
+        <button class="btn" onclick="trackDocument()">Track Document</button>
+
+        <div class="status">
+            <div class="progress-bar">
+                <span></span>
+            </div>
+            <div class="status-info">
+                <!-- Status information will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
