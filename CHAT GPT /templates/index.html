@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Chatbot</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Municipal Chatbot</h2>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <!-- Chat messages will be appended here -->
+        </div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type your message..." autofocus>
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#send-btn').click(function() {
+                sendMessage();
+            });
+
+            $('#user-input').keypress(function(e) {
+                if (e.which == 13) {
+                    sendMessage();
+                }
+            });
+
+            function sendMessage() {
+                var userMessage = $('#user-input').val();
+                if (userMessage.trim() === '') return;
+
+                $('#chat-box').append('<div class="user-message">' + userMessage + '</div>');
+                $('#user-input').val('');
+
+                $.ajax({
+                    url: '/api',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ message: userMessage }),
+                    success: function(response) {
+                        $('#chat-box').append('<div class="bot-message">' + response.content + '</div>');
+                        $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
