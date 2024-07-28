@@ -108,7 +108,9 @@ input {
   width: 100%;
   font: inherit;
 }
+
 .heading{
+  
   display: flex;
   gap: 9px;
   padding-left: 50%;

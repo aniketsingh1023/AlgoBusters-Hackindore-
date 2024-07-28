@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+        }
+
+        nav {
+            width: 100%;
+            background-color:#216ec7 ;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .upload-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .header {
+           
+        }
+
+        .upload-container h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .upload-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .custom-file-input {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .custom-file-input input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .custom-file-input::before {
+            content: 'Choose File';
+            display: inline-block;
+            background: #f4f4f4;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            width: calc(100% - 24px);
+            box-sizing: border-box;
+        }
+
+        .file-name {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+            text-align: left;
+            margin-left: 11px;
+            list-style-type: disc;
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        .upload-container button {
+            padding: 10px;
+            background-color:#007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .upload-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .upload-container .note {
+            margin-top: 20px;
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Upload Tender / Personal Document</h1>
+    </nav>
+    <div class="upload-container">
+        <div class="header">
+            <h3>Document Upload</h3>
+        </div>
+        
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="custom-file-input">
+                <input type="file" id="document" name="document" accept=".pdf,.doc,.docx" onchange="updateFileName()">
+            </div>
+            <!--<ul id="fileName" class="file-name">
+                <li>No file chosen</li>
+            </ul>-->
+            <button type="submit">Upload</button>
+        </form>
+        <p class="note">Accepted formats: PDF, DOC, DOCX</p>
+    </div>
+
+    <script>
+        function updateFileName() {
+            const input = document.getElementById('document');
+            const fileName = document.getElementById('fileName');
+            if (input.files.length > 0) {
+                fileName.innerHTML = `<li>${input.files[0].name}</li>`;
+            } else {
+                fileName.innerHTML = '<li>No file chosen</li>';
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
