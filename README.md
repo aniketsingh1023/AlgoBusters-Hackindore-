@@ -1,7 +1,7 @@
 # AlgoBusters-Hackindore-
 
 # E-Office System  
-defn -> An e-Office System is a digital platform designed to streamline and manage various administrative functions within an organization, leveraging technology to enhance efficiency, accessibility, and productivity.
+Defination :- An e-Office System is a digital platform designed to streamline and manage various administrative functions within an organization, leveraging technology to enhance efficiency, accessibility, and productivity.
 
 # Our Main Objectives :-
 > Enhance Efficiency and Accessibility
