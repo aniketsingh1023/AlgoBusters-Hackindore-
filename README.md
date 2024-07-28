@@ -5,21 +5,28 @@ defn -> An e-Office System is a digital platform designed to streamline and mana
 
 # Our Main Objectives :-
 > Enhance Efficiency and Accessibility
+
     >User-Friendly Interface
+
        > A. Simplified Navigation:
        > B. Personalization 
     >Workflow Automation
+    
        > A.Process Automation
        > B.Real-Time Notifications
     >Employee Collaboration
+    
        > A.Communication Tools
        > B.Document Collaboration
     >Public Service Accessibility
+    
        > A.Real-Time Editing
     >Integration of Self-Service Features
+    
        > A.Chatbots and Virtual Assistants
        > B.Self-Service Dashboards
     >Security and Access Control
+    
        > A.Data Protection
   
 # Key-components :-
