@@ -140,7 +140,8 @@
     <div class="box" onclick="openForm('new')">New Document</div>
 </div>
 
-<button class="track-button" onclick="window.location.href='track.html';">Track Record</button>
+
+<button class="track-button" onclick="redirectToNewWebsite()">Track Record</button>
 
 <div class="form-container" id="form-container">
     <h2 id="form-title"></h2>
@@ -183,6 +184,9 @@
 </div>
 
 <script>
+    function redirectToNewWebsite() {
+      window.location.href = 'https://66a5887376df8da6975a25af--euphonious-pika-6cadbd.netlify.app'; // Replace with your desired URL
+    }
     function openForm(type) {
         document.getElementById('form-container').style.display = 'block';
         document.getElementById('tracking-container').style.display = 'none';
