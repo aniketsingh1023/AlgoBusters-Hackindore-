@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="metered-frame"></div>
+    <script src="https://cdn.metered.ca/sdk/frame/1.4.3/sdk-frame.min.js"></script>
+    <script>
+        var frame = new MeteredFrame(); 
+        frame.init({
+            roomURL: "signvision.metered.live/hackndore",
+        }, document.getElementById("metered-frame"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaboration Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        .sidebar {
+            width: 25%;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-right: 1px solid #dee2e6;
+        }
+
+        .department {
+            margin-bottom: 20px;
+        }
+
+        .department ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .department li {
+            padding: 5px;
+            background-color: #e9ecef;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .main-area {
+            width: 75%;
+            padding: 20px;
+        }
+
+        .new-members, .messaging, .tasks {
+            margin-bottom: 20px;
+        }
+
+        #messages {
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            background-color: #f8f9fa;
+        }
+
+        .new-member p {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .remove-button {
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .video-call-button {
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Departments</h2>
+            <div class="department" id="health">
+                <h3>Health Dept.</h3>
+                <ul>
+                    <li class="employee" draggable="true">Employee 1</li>
+                    <li class="employee" draggable="true">Employee 2</li>
+                    <li class="employee" draggable="true">Employee 3</li>
+                </ul>
+            </div>
+            <div class="department" id="urban">
+                <h3>Urban Development Dept.</h3>
+                <ul>
+                    <li class="employee" draggable="true">Employee 1</li>
+                    <li class="employee" draggable="true">Employee 2</li>
+                    <li class="employee" draggable="true">Employee 3</li>
+                </ul>
+            </div>
+            <div class="department" id="public">
+                <h3>Public Distribution System</h3>
+                <ul>
+                    <li class="employee" draggable="true">Employee 1</li>
+                    <li class="employee" draggable="true">Employee 2</li>
+                    <li class="employee" draggable="true">Employee 3</li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-area">
+            <h2>Collaboration Area</h2>
+            <div class="new-members">
+                <h3>New Members</h3>
+                <div class="new-member" id="new-member" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <p>Drag employees here to collaborate</p>
+                </div>
+            </div>
+            <div class="messaging">
+                <h3>Messaging</h3>
+                <div id="messages">
+                    <!-- Messages will appear here -->
+                </div>
+                <div>
+                    <input type="text" id="messageInput" placeholder="Type a message...">
+                    <button id="sendMessage">Send</button>
+
+                    <button class="video-call-button" onclick="startVideoCall()">Video Call</button>
+                </div>
+            </div>
+            <div class="tasks">
+                <h3>Assigned Tasks</h3>
+                <h4 id="taskHeader">Construction</h4>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.employee').forEach(emp => {
+            emp.addEventListener('dragstart', drag);
+        });
+
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData('text', event.target.innerText);
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData('text');
+            const newMember = document.createElement('p');
+            newMember.textContent = data;
+
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.className = 'remove-button';
+            removeButton.onclick = function () {
+                newMember.remove();
+            };
+
+            newMember.appendChild(removeButton);
+            document.getElementById('new-member').appendChild(newMember);
+        }
+
+        document.getElementById('sendMessage').addEventListener('click', () => {
+            const message = document.getElementById('messageInput').value;
+            const messageElement = document.createElement('p');
+            messageElement.textContent = message;
+            document.getElementById('messages').appendChild(messageElement);
+            document.getElementById('messageInput').value = '';
+        });
+
+        function startVideoCall() {
+            window.location.href = 'videocall.html';
+        }
+    </script>
+</body>
+</html>

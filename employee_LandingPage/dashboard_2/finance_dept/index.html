@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Department</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>Finance Department</h1>
+            <div class="functions">
+                <button id="send-file">Send File</button>
+                <button id="send-back">Send Back</button>
+                <button id="park">Park</button>
+                <button id="move-to">Move To</button>
+                <button id="file-create">File Create</button>
+                <button id="dispatched">Dispatched</button>
+            </div>
+            <div class="filter">
+                <select id="filter-options">
+                    <option value="all">All</option>
+                    <option value="received">Received</option>
+                    <option value="priority">Priority</option>
+                    <option value="other-department">Other Department</option>
+                </select>
+                <button id="upload-document">Upload Document</button>
+                <button id="remove-document">Remove Document</button>
+            </div>
+        </div>
+        <div class="content">
+            <table id="files-table">
+                <thead>
+                    <tr>
+                        <th>Filename</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Files will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Photo Upload Section -->
+    <div class="upload-section">
+        <h2>Upload Photo</h2>
+        <form id="photo-upload-form">
+            <label for="photo-upload">Choose a photo:</label>
+            <input type="file" id="photo-upload" name="photoUpload" accept="image/*">
+            <button type="submit">Upload Photo</button>
+        </form>
+    </div>
+
+    <!-- Second Body Section -->
+    <div class="dashboard">
+        <div class="header">
+            <h1>Tender by P1</h1>
+            <div class="actions">
+                <button id="accept">Accept</button>
+                <button id="decline">Decline</button>
+            </div>
+        </div>
+        <div class="content">
+            <pre id="certificate-content">Certificate Content</pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
